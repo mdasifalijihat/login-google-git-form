@@ -3,10 +3,13 @@ import GitLogin from './GitLogin';
 import GoogleLogin from './GoogleLogin';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
+import { useNavigate } from 'react-router';
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -20,8 +23,11 @@ const Register = () => {
         console.log(email, password, name)
         createUserWithEmailAndPassword(auth, email, password).then((result) =>{
             console.log(result)
+            alert("register success");
+            navigate('/login')
         }).catch((error) => {
             console.log(error)
+            alert('Register Not okay')
         })
 
     }
