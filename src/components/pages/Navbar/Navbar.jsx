@@ -9,7 +9,7 @@ const Navbar = () => {
       <NavLink to={"/"}> Blog </NavLink>
       <NavLink to={"/login"}> LogIn </NavLink>
       <NavLink to={"/register"}> Register </NavLink>
-      <NavLink to={"/logout"}> LogOut </NavLink>
+      <NavLink to={"/UserAccount"}> User Account </NavLink>
       
     </>
   );

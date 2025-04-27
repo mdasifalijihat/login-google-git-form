@@ -6,7 +6,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
 import ForgetPassword from "../components/pages/Login/ForgetPassword";
-import LogOut from "../components/pages/Login/LogOut";
+import UserAccount from "../components/pages/Login/UserAccount";
  export const router = createBrowserRouter([
     {
       path: "/",
@@ -17,7 +17,7 @@ import LogOut from "../components/pages/Login/LogOut";
         {path:'/login', Component: Login},
         {path: "/register", Component: Register}, 
         {path:'/forgetPassword', Component: ForgetPassword},
-        {path:'/logout', Component: LogOut}
+        {path:'/UserAccount', Component: UserAccount}
       ]
     },
   ]); 
