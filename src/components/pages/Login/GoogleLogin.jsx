@@ -1,8 +1,9 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import React from "react";
 import { auth } from "../../firebase/firebase.init";
+import { FaGoogle } from "react-icons/fa";
 
-const Google = () => {
+const GoogleLogin = () => {
 
   const provider = new GoogleAuthProvider();
   const handleGoogleLogin = () => {
@@ -18,9 +19,9 @@ const Google = () => {
 
   return (
     <div>
-      <button onClick={handleGoogleLogin}> Google Login </button>
+      <button className=" flex justify-center items-center gap-2 " onClick={handleGoogleLogin}> Google Login <FaGoogle></FaGoogle> </button>
     </div>
   );
 };
 
-export default Google;
+export default GoogleLogin;

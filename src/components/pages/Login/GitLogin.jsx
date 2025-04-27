@@ -1,6 +1,7 @@
 import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { auth } from '../../firebase/firebase.init';
+import { FaGithub } from 'react-icons/fa';
 
 const GitLogin = () => {
 
@@ -16,7 +17,7 @@ const GitLogin = () => {
    
     return (
         <div>
-            <button onClick={handleGitHumLogin}> GitHub Login </button>
+            <button className='flex justify-center items-center gap-2' onClick={handleGitHumLogin}> GitHub Login <FaGithub></FaGithub> </button>
         </div>
     );
 };

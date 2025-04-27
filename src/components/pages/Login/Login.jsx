@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Google from './Google';
 import GitLogin from './GitLogin';
-import { FaGoogle } from 'react-icons/fa';
-import { IoLogoGithub } from 'react-icons/io';
+import GoogleLogin from './GoogleLogin';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.init';
+
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -11,12 +12,28 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
+
+    const handleLoginSumbit = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+
+        signInWithEmailAndPassword(auth, email, password).then((result) => {
+            console.log(result)
+        }).catch((error) => {
+            console.log(error)
+        })
+        
+
+    }
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-96">
                 <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
-                <form>
+                <form onSubmit={handleLoginSumbit}>
                     <div className="mb-4">
                         <label className="block mb-1 font-semibold" htmlFor="email">Email</label>
                         <input
@@ -73,8 +90,8 @@ const Login = () => {
 
                 {/* Social Login Buttons */}
                 <div className="flex flex-col gap-4">
-                   <button className='btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full'>  <Google /> <FaGoogle /> </button>
-                    <button className='btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full'> <GitLogin /> <IoLogoGithub /></button>
+                   <button className='btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full'>  <GoogleLogin></GoogleLogin>  </button>
+                    <button className='btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full'> <GitLogin /> </button>
                 </div>
             </div>
         </div>
